@@ -1,7 +1,8 @@
 """
-ETAPA 2 do workflow: roda DEPOIS que a imagem já foi commitada e enviada
-pro GitHub Pages. Espera a URL ficar acessível (com tentativas), publica
-no Instagram, e marca o post como enviado no content_calendar.yaml.
+ETAPA 2 do workflow: roda DEPOIS que as imagens já foram commitadas e
+enviadas pro GitHub Pages. Espera as URLs ficarem acessíveis, publica
+no Instagram (imagem única ou carrossel, dependendo do tipo), e marca
+o post como enviado no content_calendar.yaml.
 """
 import json
 import sys
@@ -11,13 +12,12 @@ from pathlib import Path
 import requests
 import yaml
 
-from publish_instagram import publish_image_post
+from publish_instagram import publish_image_post, publish_carousel_post
 
 ROOT = Path(__file__).parent
 CALENDAR_PATH = ROOT / "content_calendar.yaml"
 STATE_PATH = ROOT / ".next_post.json"
 
-# Já trocado pelo domínio real do GitHub Pages da clínica
 PAGES_BASE_URL = "https://clinicainnerlife-create.github.io/ig-autopost-inner-life"
 
 
@@ -41,15 +41,22 @@ def main():
         print("Nada pra publicar nesta execução.")
         sys.exit(0)
 
-    image_url = f"{PAGES_BASE_URL}/generated/{state['image_filename']}"
-    print(f"Aguardando a imagem ficar pública: {image_url}")
+    image_urls = [
+        f"{PAGES_BASE_URL}/generated/{filename}"
+        for filename in state["image_filenames"]
+    ]
 
-    if not wait_until_public(image_url):
-        print("ERRO: a imagem não ficou disponível a tempo. Abortando publicação.")
-        sys.exit(1)
+    for url in image_urls:
+        print(f"Aguardando a imagem ficar pública: {url}")
+        if not wait_until_public(url):
+            print(f"ERRO: {url} não ficou disponível a tempo. Abortando publicação.")
+            sys.exit(1)
 
     print("Publicando no Instagram...")
-    media_id = publish_image_post(image_url, state["caption"])
+    if state["type"] == "carousel":
+        media_id = publish_carousel_post(image_urls, state["caption"])
+    else:
+        media_id = publish_image_post(image_urls[0], state["caption"])
     print(f"Publicado! media_id = {media_id}")
 
     calendar = yaml.safe_load(CALENDAR_PATH.read_text(encoding="utf-8"))

@@ -1,0 +1,34 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#F7F1E7"/>
+  <rect x="0" y="0" width="1080" height="150" fill="#6E2F3B"/>
+  <text x="90" y="95" font-family="Georgia, 'Times New Roman', serif" font-size="22" letter-spacing="6" fill="#EFD9C5">COMO FUNCIONA</text>
+
+  <text x="90" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#6E2F3B" font-style="italic">Reprogramação mental,</text>
+  <text x="90" y="345" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#6E2F3B" font-style="italic">em 3 passos</text>
+
+  <!-- step 1 -->
+  <text x="90" y="460" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#D9B366" font-style="italic">01</text>
+  <text x="170" y="450" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6E2F3B" font-weight="400">Identificamos o padrão</text>
+  <text x="170" y="485" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#8C3E4C" font-weight="300">de onde ele vem e o que ele protege</text>
+
+  <!-- step 2 -->
+  <text x="90" y="590" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#D9B366" font-style="italic">02</text>
+  <text x="170" y="580" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6E2F3B" font-weight="400">Trabalhamos o subconsciente</text>
+  <text x="170" y="615" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#8C3E4C" font-weight="300">com hipnose clínica e técnicas dirigidas</text>
+
+  <!-- step 3 -->
+  <text x="90" y="720" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#D9B366" font-style="italic">03</text>
+  <text x="170" y="710" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6E2F3B" font-weight="400">Instalamos um novo padrão</text>
+  <text x="170" y="745" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#8C3E4C" font-weight="300">um que te leva pra frente, não pra trás</text>
+
+  <rect x="0" y="930" width="1080" height="150" fill="#E7B9BE"/>
+  <text x="90" y="1010" font-family="'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6E2F3B" font-weight="300">Sem julgamento. Sem pressa. No seu tempo.</text>
+
+  <g transform="translate(462,1010)">
+    <circle cx="-105" cy="0" r="6" fill="none" stroke="#6E2F3B" stroke-width="1.5"/>
+    <circle cx="-70" cy="0" r="6" fill="none" stroke="#6E2F3B" stroke-width="1.5"/>
+    <circle cx="-35" cy="0" r="6" fill="none" stroke="#6E2F3B" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="7" fill="#D9B366"/>
+    <circle cx="35" cy="0" r="6" fill="none" stroke="#6E2F3B" stroke-width="1.5"/>
+  </g>
+</svg>

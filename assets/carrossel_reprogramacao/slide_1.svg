@@ -1,0 +1,30 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="mg1" cx="30%" cy="15%" r="90%">
+      <stop offset="0%" stop-color="#8C3E4C"/>
+      <stop offset="100%" stop-color="#6E2F3B"/>
+    </radialGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#mg1)"/>
+
+  <!-- decorative gold circle -->
+  <circle cx="960" cy="150" r="70" fill="none" stroke="#D9B366" stroke-width="2" opacity="0.6"/>
+  <circle cx="960" cy="150" r="6" fill="#D9B366"/>
+
+  <text x="90" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="22" letter-spacing="6" fill="#EFD9C5">REPROGRAMAÇÃO MENTAL</text>
+
+  <text x="90" y="470" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#F7F1E7" font-style="italic">Por que você</text>
+  <text x="90" y="545" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#F7F1E7" font-style="italic">trava sempre</text>
+  <text x="90" y="620" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#F7F1E7" font-style="italic">no mesmo ponto?</text>
+
+  <text x="90" y="700" font-family="'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#EFD9C5" font-weight="300">Arraste e descubra o porquê →</text>
+
+  <!-- progress dots -->
+  <g transform="translate(462,1010)">
+    <circle cx="0" cy="0" r="7" fill="#D9B366"/>
+    <circle cx="35" cy="0" r="6" fill="none" stroke="#EFD9C5" stroke-width="1.5"/>
+    <circle cx="70" cy="0" r="6" fill="none" stroke="#EFD9C5" stroke-width="1.5"/>
+    <circle cx="105" cy="0" r="6" fill="none" stroke="#EFD9C5" stroke-width="1.5"/>
+    <circle cx="140" cy="0" r="6" fill="none" stroke="#EFD9C5" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldLine3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B98A3E"/>
+      <stop offset="50%" stop-color="#D9B366"/>
+      <stop offset="100%" stop-color="#B98A3E"/>
+    </linearGradient>
+    <radialGradient id="mg3" cx="70%" cy="85%" r="90%">
+      <stop offset="0%" stop-color="#8C3E4C"/>
+      <stop offset="100%" stop-color="#6E2F3B"/>
+    </radialGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#mg3)"/>
+
+  <text x="90" y="140" font-family="Georgia, 'Times New Roman', serif" font-size="22" letter-spacing="6" fill="#EFD9C5">A VIRADA</text>
+
+  <text x="90" y="290" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#F7F1E7" font-style="italic">Não é falta de</text>
+  <text x="90" y="360" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#F7F1E7" font-style="italic">força de vontade.</text>
+
+  <!-- thread motif: tangled to smooth -->
+  <g transform="translate(90,460)">
+    <path d="M0,60 C 40,-10 70,110 110,40 C 150,-30 170,90 210,50 C 230,30 220,10 200,20"
+          fill="none" stroke="#EFD9C5" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+    <path d="M210,50 C 320,10 430,10 900,10"
+          fill="none" stroke="url(#goldLine3)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="900" cy="10" r="9" fill="#D9B366"/>
+  </g>
+
+  <text x="90" y="640" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#F7F1E7" font-weight="300">
+    <tspan x="90" dy="0">É o subconsciente rodando</tspan>
+    <tspan x="90" dy="44">um padrão antigo — instalado</tspan>
+    <tspan x="90" dy="44">há tanto tempo que você nem</tspan>
+    <tspan x="90" dy="44">lembra de tê-lo aprendido.</tspan>
+  </text>
+
+  <text x="90" y="900" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#D9B366" font-style="italic">E o que se aprende, se reaprende.</text>
+
+  <g transform="translate(462,1010)">
+    <circle cx="-70" cy="0" r="6" fill="none" stroke="#EFD9C5" stroke-width="1.5"/>
+    <circle cx="-35" cy="0" r="6" fill="none" stroke="#EFD9C5" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="7" fill="#D9B366"/>
+    <circle cx="35" cy="0" r="6" fill="none" stroke="#EFD9C5" stroke-width="1.5"/>
+    <circle cx="70" cy="0" r="6" fill="none" stroke="#EFD9C5" stroke-width="1.5"/>
+  </g>
+</svg>

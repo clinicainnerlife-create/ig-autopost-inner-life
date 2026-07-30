@@ -25,7 +25,9 @@ def render_svg(post: dict) -> str:
     )
 
 
-def svg_to_jpeg(svg_content: str, output_path: Path) -> Path:
+def _rasterize(svg_content: str, output_path: Path) -> Path:
+    """Converte um conteúdo SVG (string) em JPEG, forçando UTF-8 e
+    achatando qualquer transparência num fundo branco."""
     with tempfile.NamedTemporaryFile(
         suffix=".html", mode="w", encoding="utf-8", delete=False
     ) as f:
@@ -51,7 +53,6 @@ def svg_to_jpeg(svg_content: str, output_path: Path) -> Path:
         capture_output=True,
     )
 
-    # Achata qualquer transparência num fundo branco e salva como JPEG
     with Image.open(png_path) as im:
         rgb = Image.new("RGB", im.size, (255, 255, 255))
         rgb.paste(im, mask=im.split()[3] if im.mode == "RGBA" else None)
@@ -61,7 +62,28 @@ def svg_to_jpeg(svg_content: str, output_path: Path) -> Path:
     return output_path
 
 
+def svg_to_jpeg(svg_content: str, output_path: Path) -> Path:
+    return _rasterize(svg_content, output_path)
+
+
+def svg_file_to_jpeg(svg_path: Path, output_path: Path) -> Path:
+    """Converte um arquivo .svg já pronto (ex: slide de carrossel
+    desenhado à mão) direto pra JPEG, sem passar pelo template Jinja."""
+    return _rasterize(svg_path.read_text(encoding="utf-8"), output_path)
+
+
 def generate(post: dict, output_dir: Path) -> Path:
     svg_content = render_svg(post)
     output_path = output_dir / f"post_{post['id']}.jpg"
     return svg_to_jpeg(svg_content, output_path)
+
+
+def generate_carousel(post: dict, output_dir: Path, assets_root: Path) -> list[Path]:
+    """Gera todas as imagens de um post do tipo carrossel, na ordem
+    listada em post['slides'] (caminhos relativos de arquivos .svg)."""
+    paths = []
+    for i, slide_svg_relpath in enumerate(post["slides"], start=1):
+        svg_path = assets_root / slide_svg_relpath
+        output_path = output_dir / f"post_{post['id']}_slide_{i}.jpg"
+        paths.append(svg_file_to_jpeg(svg_path, output_path))
+    return paths

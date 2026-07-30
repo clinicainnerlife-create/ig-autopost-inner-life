@@ -1,0 +1,31 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1080" fill="#E7B9BE"/>
+
+  <circle cx="960" cy="150" r="70" fill="none" stroke="#6E2F3B" stroke-width="2" opacity="0.4"/>
+  <circle cx="960" cy="150" r="6" fill="#6E2F3B"/>
+
+  <text x="90" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="22" letter-spacing="6" fill="#6E2F3B">CLÍNICA INNER LIFE</text>
+
+  <text x="90" y="440" font-family="Georgia, 'Times New Roman', serif" font-size="66" fill="#6E2F3B" font-style="italic">Vamos conversar</text>
+  <text x="90" y="510" font-family="Georgia, 'Times New Roman', serif" font-size="66" fill="#6E2F3B" font-style="italic">sobre isso?</text>
+
+  <text x="90" y="620" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6E2F3B" font-weight="300">
+    <tspan x="90" dy="0">Atendimento presencial em Florianópolis</tspan>
+    <tspan x="90" dy="40">e também online, com anonimato se preferir.</tspan>
+  </text>
+
+  <!-- CTA button -->
+  <rect x="90" y="710" width="420" height="80" rx="40" fill="#6E2F3B"/>
+  <text x="300" y="760" font-family="'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#F7F1E7" text-anchor="middle">Manda um DM agora →</text>
+
+  <text x="90" y="880" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#6E2F3B" font-style="italic">@clinicainnerlife</text>
+  <text x="90" y="915" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" letter-spacing="2" fill="#6E2F3B">WHATSAPP (48) 98840-3469</text>
+
+  <g transform="translate(462,1010)">
+    <circle cx="-140" cy="0" r="6" fill="none" stroke="#6E2F3B" stroke-width="1.5"/>
+    <circle cx="-105" cy="0" r="6" fill="none" stroke="#6E2F3B" stroke-width="1.5"/>
+    <circle cx="-70" cy="0" r="6" fill="none" stroke="#6E2F3B" stroke-width="1.5"/>
+    <circle cx="-35" cy="0" r="6" fill="none" stroke="#6E2F3B" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="7" fill="#6E2F3B"/>
+  </g>
+</svg>

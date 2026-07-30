@@ -18,28 +18,25 @@ GRAPH_API_VERSION = "v21.0"
 GRAPH_BASE = f"https://graph.instagram.com/{GRAPH_API_VERSION}"
 
 
-def publish_image_post(image_url: str, caption: str) -> str:
+def _create_container(data: dict) -> str:
     ig_user_id = os.environ["IG_USER_ID"]
     access_token = os.environ["IG_ACCESS_TOKEN"]
 
-    # 1. Cria o "container" de mídia (o Instagram baixa a imagem da URL)
-    container_resp = requests.post(
+    resp = requests.post(
         f"{GRAPH_BASE}/{ig_user_id}/media",
-        data={
-            "image_url": image_url,
-            "caption": caption,
-            "access_token": access_token,
-        },
+        data={**data, "access_token": access_token},
         timeout=30,
     )
-    if not container_resp.ok:
-        print(f"Resposta da Meta: {container_resp.text}")
-    container_resp.raise_for_status()
-    creation_id = container_resp.json()["id"]
+    if not resp.ok:
+        print(f"Resposta da Meta: {resp.text}")
+    resp.raise_for_status()
+    return resp.json()["id"]
 
-    # 2. Espera o container ficar pronto (status_code = FINISHED)
+
+def _wait_until_finished(creation_id: str, attempts: int = 10, delay_seconds: int = 3) -> None:
+    access_token = os.environ["IG_ACCESS_TOKEN"]
     status = None
-    for _ in range(10):
+    for _ in range(attempts):
         status_resp = requests.get(
             f"{GRAPH_BASE}/{creation_id}",
             params={"fields": "status_code", "access_token": access_token},
@@ -47,17 +44,49 @@ def publish_image_post(image_url: str, caption: str) -> str:
         )
         status = status_resp.json().get("status_code")
         if status == "FINISHED":
-            break
-        time.sleep(3)
+            return
+        time.sleep(delay_seconds)
+    raise RuntimeError(f"Container {creation_id} não ficou pronto a tempo (status: {status})")
 
-    if status != "FINISHED":
-        raise RuntimeError(f"Container não ficou pronto a tempo (status: {status})")
 
-    # 3. Publica de fato
+def _publish_container(creation_id: str) -> str:
+    ig_user_id = os.environ["IG_USER_ID"]
+    access_token = os.environ["IG_ACCESS_TOKEN"]
+
     publish_resp = requests.post(
         f"{GRAPH_BASE}/{ig_user_id}/media_publish",
         data={"creation_id": creation_id, "access_token": access_token},
         timeout=30,
     )
+    if not publish_resp.ok:
+        print(f"Resposta da Meta: {publish_resp.text}")
     publish_resp.raise_for_status()
     return publish_resp.json()["id"]
+
+
+def publish_image_post(image_url: str, caption: str) -> str:
+    creation_id = _create_container({"image_url": image_url, "caption": caption})
+    _wait_until_finished(creation_id)
+    return _publish_container(creation_id)
+
+
+def publish_carousel_post(image_urls: list[str], caption: str) -> str:
+    """Publica um carrossel: cria um container 'filho' pra cada imagem
+    (is_carousel_item=true), espera todos ficarem prontos, cria o
+    container 'pai' do tipo CAROUSEL apontando pros filhos, e publica."""
+    child_ids = []
+    for url in image_urls:
+        child_id = _create_container({"image_url": url, "is_carousel_item": "true"})
+        _wait_until_finished(child_id)
+        child_ids.append(child_id)
+        print(f"Slide pronto: {child_id}")
+
+    parent_id = _create_container(
+        {
+            "media_type": "CAROUSEL",
+            "caption": caption,
+            "children": ",".join(child_ids),
+        }
+    )
+    _wait_until_finished(parent_id)
+    return _publish_container(parent_id)

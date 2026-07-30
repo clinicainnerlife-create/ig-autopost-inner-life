@@ -1,77 +1,72 @@
-- id: 1
-  eyebrow: REPROGRAMAÇÃO MENTAL
-  headline_lines:
-  - Por que você
-  - trava sempre no
-  - mesmo ponto?
-  subtext: Não é falta de força de vontade.
-  caption: 'Você já reparou nos padrões que se repetem na sua vida?
+# Fila de posts. O robô publica o primeiro item com "posted: false",
+# marca como true depois, e vai descendo a lista sozinho.
+# Adicione novos posts no final quando quiser alimentar a fila.
+#
+# Dois tipos de post:
+#   type: image     -> usa eyebrow/headline_lines/subtext (gerado pelo template)
+#   type: carousel  -> usa "slides", uma lista de arquivos .svg prontos em /assets
 
-    Relacionamento, decisão, medo — sempre a mesma trava.
+- id: 001
+  type: carousel
+  slides:
+    - carrossel_reprogramacao/slide_1.svg
+    - carrossel_reprogramacao/slide_2.svg
+    - carrossel_reprogramacao/slide_3.svg
+    - carrossel_reprogramacao/slide_4.svg
+    - carrossel_reprogramacao/slide_5.svg
+  caption: |
+    Você já reparou nos padrões que se repetem na sua vida? Relacionamento,
+    decisão, medo — sempre a mesma trava.
 
+    Não é falta de força de vontade. É o subconsciente rodando um programa
+    antigo.
 
-    Não é falta de força de vontade. É o subconsciente rodando
-
-    um programa antigo.
-
-
-    Manda um direct e vamos conversar 👉
-
+    Passa pro lado e entenda como a reprogramação mental resolve isso na
+    raiz 👉
 
     📍 Florianópolis (presencial) ou online
+    💬 Link na bio ou chama no direct
 
+    #reprogramaçãomental #hipnoseclínica #saudemental #florianopolis #autoconhecimento #terapia
+  posted: false
 
-    #reprogramaçãomental #hipnoseclínica #saudemental #florianopolis
-
-    '
-  posted: true
-- id: 2
-  eyebrow: HIPNOSE CLÍNICA
+- id: 002
+  type: image
+  eyebrow: "HIPNOSE CLÍNICA"
   headline_lines:
-  - O que a sua
-  - mente esconde
-  - de você mesmo?
-  subtext: A resposta não está no consciente.
-  caption: 'Fobias, bloqueios, medos que não fazem sentido racional —
-
+    - "O que a sua"
+    - "mente esconde"
+    - "de você mesmo?"
+  subtext: "A resposta não está no consciente."
+  caption: |
+    Fobias, bloqueios, medos que não fazem sentido racional —
     quase sempre a explicação está guardada onde você não
-
     consegue acessar sozinho: o subconsciente.
 
-
     A hipnose clínica é uma ferramenta, não um espetáculo.
-
     Serve pra isso: acessar a raiz.
-
 
     Quer entender se faz sentido pro seu caso? Chama no direct.
 
-
     #hipnoseclínica #saudemental #terapia #florianopolis
-
-    '
   posted: false
-- id: 3
-  eyebrow: AUTOCONHECIMENTO
-  headline_lines:
-  - Falar é o
-  - início da
-  - mudança.
-  subtext: Uma boa conversa muda tudo.
-  caption: 'O ser humano não foi feito pra guardar sentimentos.
 
+- id: 003
+  type: image
+  eyebrow: "AUTOCONHECIMENTO"
+  headline_lines:
+    - "Falar é o"
+    - "início da"
+    - "mudança."
+  subtext: "Uma boa conversa muda tudo."
+  caption: |
+    O ser humano não foi feito pra guardar sentimentos.
 
     Se você tá carregando algo sozinho há tempo demais,
-
     talvez o primeiro passo seja simplesmente começar a falar.
 
-
     Atendimento presencial em Floripa ou online, com anonimato
-
     se você preferir.
 
-
     #saudemental #terapia #autoconhecimento #florianopolis
-
-    '
   posted: false
