@@ -12,7 +12,10 @@ import time
 import requests
 
 GRAPH_API_VERSION = "v21.0"
-GRAPH_BASE = f"https://graph.facebook.com/{GRAPH_API_VERSION}"
+# Tokens gerados via "API Setup with Instagram Business Login" (os que começam
+# com IGAAT...) falam com graph.instagram.com. Só tokens vindos de Facebook
+# Login (Página conectada) usam graph.facebook.com.
+GRAPH_BASE = f"https://graph.instagram.com/{GRAPH_API_VERSION}"
 
 
 def publish_image_post(image_url: str, caption: str) -> str:
