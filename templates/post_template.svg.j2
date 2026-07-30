@@ -1,0 +1,24 @@
+<svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="mg" cx="30%" cy="15%" r="90%">
+      <stop offset="0%" stop-color="#8C3E4C"/>
+      <stop offset="100%" stop-color="#6E2F3B"/>
+    </radialGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#mg)"/>
+
+  <circle cx="960" cy="150" r="70" fill="none" stroke="#D9B366" stroke-width="2" opacity="0.6"/>
+  <circle cx="960" cy="150" r="6" fill="#D9B366"/>
+
+  <text x="90" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="22" letter-spacing="6" fill="#EFD9C5">{{ eyebrow }}</text>
+
+  {% for line in headline_lines %}
+  <text x="90" y="{{ 470 + loop.index0 * 75 }}" font-family="Georgia, 'Times New Roman', serif" font-size="64" fill="#F7F1E7" font-style="italic">{{ line }}</text>
+  {% endfor %}
+
+  <text x="90" y="{{ 470 + headline_lines|length * 75 + 60 }}" font-family="'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#EFD9C5" font-weight="300">{{ subtext }}</text>
+
+  <rect x="0" y="930" width="1080" height="150" fill="#E7B9BE"/>
+  <text x="90" y="1010" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-style="italic" fill="#6E2F3B">Vamos conversar?</text>
+  <text x="90" y="1045" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" letter-spacing="2" fill="#6E2F3B">@clinicainnerlife  ·  Florianópolis</text>
+</svg>
