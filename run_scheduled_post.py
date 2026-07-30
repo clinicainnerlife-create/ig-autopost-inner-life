@@ -24,7 +24,7 @@ CALENDAR_PATH = ROOT / "content_calendar.yaml"
 GENERATED_DIR = ROOT / "docs" / "generated"
 
 # Troque pelo seu usuário/repositório reais depois de criar o repo no GitHub
-PAGES_BASE_URL = "https://SEU_USUARIO.github.io/SEU_REPOSITORIO"
+PAGES_BASE_URL = "https://clinicainnerlife-create.github.io/ig-autopost-inner-life"
 
 
 def main():
