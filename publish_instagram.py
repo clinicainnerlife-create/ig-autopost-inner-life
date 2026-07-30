@@ -29,6 +29,8 @@ def publish_image_post(image_url: str, caption: str) -> str:
         },
         timeout=30,
     )
+    if not container_resp.ok:
+        print(f"Resposta da Meta: {container_resp.text}")
     container_resp.raise_for_status()
     creation_id = container_resp.json()["id"]
 
