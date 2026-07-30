@@ -56,7 +56,8 @@ def svg_to_jpeg(svg_content: str, output_path: Path) -> Path:
         rgb = Image.new("RGB", im.size, (255, 255, 255))
         rgb.paste(im, mask=im.split()[3] if im.mode == "RGBA" else None)
         rgb.save(output_path, "JPEG", quality=92)
-png_path.unlink(missing_ok=True)
+
+    png_path.unlink(missing_ok=True)
     return output_path
 
 
