@@ -56,3 +56,11 @@ def svg_to_jpeg(svg_content: str, output_path: Path) -> Path:
         rgb = Image.new("RGB", im.size, (255, 255, 255))
         rgb.paste(im, mask=im.split()[3] if im.mode == "RGBA" else None)
         rgb.save(output_path, "JPEG", quality=92)
+png_path.unlink(missing_ok=True)
+    return output_path
+
+
+def generate(post: dict, output_dir: Path) -> Path:
+    svg_content = render_svg(post)
+    output_path = output_dir / f"post_{post['id']}.jpg"
+    return svg_to_jpeg(svg_content, output_path)
