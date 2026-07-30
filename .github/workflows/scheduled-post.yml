@@ -2,8 +2,8 @@ name: Post agendado no Instagram
 
 on:
   schedule:
-    # Toda terça e sexta, 13h UTC = 10h horário de Brasília
-    - cron: "0 13 * * 2,5"
+    # Toda terça e quinta, 14h50 UTC = 11h50 horário de Brasília
+    - cron: "50 14 * * 2,4"
   workflow_dispatch: {}  # permite rodar manualmente pelo botão "Run workflow" no GitHub
 
 permissions:
